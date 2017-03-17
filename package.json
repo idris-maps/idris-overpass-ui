@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "watchify main.js -o public/script.js -t [ babelify --presets [ es2015 react ] ]",
-    "mini": "uglify -s public/script.js -o public/script.js"
+    "build": "NODE_ENV=production browserify main.js -o public/script.js -t [ babelify --presets [ es2015 react ] ]",
+    "mini": "uglify -s public/script.js -o public/script.js",
+    "prod": "npm run build && npm run mini"
   },
   "author": "",
   "license": "ISC",
